@@ -35,9 +35,9 @@ export default function Projects() {
               </h3>
 
               <p className="mt-4 max-w-xl text-sm leading-7 text-muted sm:text-base">
-                I'm currently working on new projects to put my fullstack
+                I&apos;m currently working on new projects to put my fullstack
                 skills into practice. This space will soon feature practical
-                applications, the ideas behind them, and what I've learned
+                applications, the ideas behind them, and what I&apos;ve learned
                 along the way.
               </p>
 

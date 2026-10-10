@@ -1,8 +1,8 @@
 
 import type {
   Project,
-  SkillGroup,
-  CareerEntry,
+  // SkillGroup,
+  // CareerEntry,
 } from "@/types/portfolio";
 
 
