@@ -18,7 +18,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Your Name | Fullstack Developer",
+  title: "Hanna Arefi | Fullstack Developer",
   description:
     "Fullstack developer with a background in teaching.",
 };
