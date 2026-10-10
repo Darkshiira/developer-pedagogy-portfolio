@@ -22,7 +22,7 @@ export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="relative z-50 border-b border-[#e9e0d6] bg-[#fcf8f3]">
+    <header className="sticky top-0 z-50 border-b border-[#e9e0d6] bg-[#fcf8f3]/95 shadow-sm backdrop-blur-md">
       <div className="mx-auto flex min-h-[72px] max-w-[1600px] items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
 
         {/* LOGO + BRAND */}
@@ -82,8 +82,8 @@ export default function Header() {
 
         {/* PROFILE IMAGE */}
         <a
-          href="#home"
-          aria-label="Back to home"
+          href="https://www.linkedin.com/in/hanna-arefi/"
+          aria-label="To Hanna Arefi's LinkedIn profile"
           className="hidden shrink-0 sm:block"
         >
           <Image

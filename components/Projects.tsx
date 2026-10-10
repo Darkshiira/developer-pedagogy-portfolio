@@ -1,17 +1,7 @@
-
 import SectionHeading from "@/components/SectionHeading";
-import ProjectCard from "@/components/ProjectCard";
-import { projects } from "@/data/portfolio";
+import { Hammer, Code2, Sparkles } from "lucide-react";
 
 export default function Projects() {
-  const featuredProject = projects.find(
-    (project) => project.featured
-  );
-
-  const otherProjects = projects.filter(
-    (project) => !project.featured
-  );
-
   return (
     <section
       id="projects"
@@ -19,98 +9,87 @@ export default function Projects() {
     >
       <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="02 / Practical solutions"
+          eyebrow="Practical solutions"
           title="Featured fullstack projects"
           description="A selection of projects demonstrating problem-solving, technical implementation and thoughtful design."
         />
 
-        {featuredProject && (
-          <div className="grid overflow-hidden rounded-panel border border-line bg-card lg:grid-cols-2">
-            <div className="p-6 sm:p-8">
-              <p className="text-[10px] font-bold uppercase tracking-widest text-teal">
-                Featured project
-              </p>
+        <div className="relative mt-8 overflow-hidden rounded-panel border border-line bg-card">
+          {/* Decorative background */}
+          <div className="pointer-events-none absolute -right-16 -top-20 size-64 rounded-full bg-[#17695d]/5 blur-3xl" />
+          <div className="pointer-events-none absolute -bottom-24 -left-12 size-64 rounded-full bg-[#e87936]/5 blur-3xl" />
 
-              <h3 className="mt-4 text-2xl font-bold tracking-tight">
-                {featuredProject.title}
+          <div className="relative grid items-center gap-8 p-7 sm:p-10 lg:grid-cols-[1fr_auto] lg:gap-12 lg:p-12">
+            {/* Text */}
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#f2d8bd] bg-[#fff4e8] px-3 py-1.5">
+                <span className="size-2 rounded-full bg-[#e87936]" />
+                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-[#a94e1c]">
+                  Work in progress
+                </span>
+              </div>
+
+              <h3 className="mt-5 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
+                Good projects take{" "}
+                <span className="text-teal">thought and time.</span>
               </h3>
 
-              <p className="mt-4 text-sm leading-7 text-muted">
-                {featuredProject.description}
+              <p className="mt-4 max-w-xl text-sm leading-7 text-muted sm:text-base">
+                I'm currently working on new projects to put my fullstack
+                skills into practice. This space will soon feature practical
+                applications, the ideas behind them, and what I've learned
+                along the way.
               </p>
 
-              <ul className="mt-5 flex flex-wrap gap-2">
-                {featuredProject.technologies.map((technology) => (
-                  <li
-                    key={technology}
-                    className="rounded-full bg-sand px-3 py-1 text-[10px] font-medium"
-                  >
-                    {technology}
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-7 flex flex-wrap gap-4 text-sm font-semibold">
-                {featuredProject.demoUrl && (
-                  <a
-                    href={featuredProject.demoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-teal hover:underline"
-                  >
-                    View project ↗
-                  </a>
-                )}
-
-                {featuredProject.githubUrl && (
-                  <a
-                    href={featuredProject.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-muted hover:text-teal"
-                  >
-                    GitHub repository ↗
-                  </a>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {["Learning by building", "Fullstack development", "Coming soon"].map(
+                  (item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-line bg-sand px-3 py-1.5 text-xs font-medium text-muted"
+                    >
+                      {item}
+                    </span>
+                  )
                 )}
               </div>
             </div>
 
-            <div className="flex min-h-64 items-center justify-center border-t border-line bg-[#eae3d9] p-6 lg:border-l lg:border-t-0">
-              <div className="w-full max-w-md rounded-xl border border-line bg-white p-4 shadow-sm">
-                <div className="mb-5 flex gap-1.5">
-                  <span className="size-2.5 rounded-full bg-red-300" />
-                  <span className="size-2.5 rounded-full bg-amber-300" />
-                  <span className="size-2.5 rounded-full bg-emerald-300" />
+            {/* Decorative illustration */}
+            <div className="flex items-center justify-center lg:justify-end">
+              <div className="relative flex size-40 items-center justify-center rounded-[2rem] border border-line bg-sand shadow-sm sm:size-48">
+                <div className="absolute inset-3 rounded-[1.5rem] border border-dashed border-[#d9cabb]" />
+
+                <div className="relative flex size-20 items-center justify-center rounded-2xl bg-teal text-white shadow-md sm:size-24">
+                  <Code2 size={38} strokeWidth={1.6} />
                 </div>
 
-                <p className="text-xs font-bold">
-                  Project interface preview
-                </p>
+                <div className="absolute -right-3 top-5 flex size-11 items-center justify-center rounded-xl border border-line bg-white text-[#e87936] shadow-sm">
+                  <Hammer size={21} />
+                </div>
 
-                <div className="mt-4 space-y-3">
-                  <div className="h-3 w-3/4 rounded bg-sand" />
-                  <div className="h-3 w-full rounded bg-sand" />
-                  <div className="h-3 w-1/2 rounded bg-sand" />
-                  <div className="mt-5 grid grid-cols-2 gap-3">
-                    <div className="h-16 rounded-lg border border-line bg-cream" />
-                    <div className="h-16 rounded-lg border border-line bg-cream" />
-                  </div>
+                <div className="absolute -bottom-3 -left-2 flex size-10 items-center justify-center rounded-xl border border-line bg-white text-teal shadow-sm">
+                  <Sparkles size={19} />
                 </div>
               </div>
             </div>
           </div>
-        )}
 
-        {otherProjects.length > 0 && (
-          <div className="mt-5 grid gap-4 md:grid-cols-2">
-            {otherProjects.map((project) => (
-              <ProjectCard
-                key={project.title}
-                project={project}
-              />
-            ))}
+          {/* Bottom status strip */}
+          <div className="relative flex flex-wrap items-center justify-between gap-3 border-t border-line bg-sand/70 px-7 py-4 sm:px-10">
+            <p className="text-xs text-muted">
+              <span className="font-semibold text-ink">
+                Next step:
+              </span>{" "}
+              Turning ideas into working applications.
+            </p>
+
+            <span className="inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-wider text-teal">
+              <span className="size-1.5 rounded-full bg-teal" />
+              Building something new
+            </span>
           </div>
-        )}
+        </div>
       </div>
     </section>
   );
