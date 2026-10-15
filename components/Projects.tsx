@@ -1,4 +1,5 @@
 import { ArrowUpRight, Code2, Heart } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
 import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/portfolio";
@@ -36,8 +37,8 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* PERSONAL NOTE */}
-        <div className="mt-10 flex flex-col items-start justify-between gap-5 rounded-2xl border border-[#e4e8dc] bg-[#f0f6ed] p-6 sm:flex-row sm:items-center sm:p-7">
+        {/* DESKTOP — PERSONAL NOTE + GITHUB */}
+        <div className="mt-10 hidden items-center justify-between gap-5 rounded-2xl border border-[#e4e8dc] bg-[#f0f6ed] p-7 sm:flex">
           <div className="flex items-start gap-4">
             <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-white text-[#17695d] shadow-sm">
               <Heart size={21} />
@@ -63,9 +64,23 @@ export default function Projects() {
             rel="noopener noreferrer"
             className="inline-flex shrink-0 items-center gap-2 rounded-xl border border-[#cce7d7] bg-white px-4 py-3 text-[13px] font-bold text-[#17695d] transition-colors hover:bg-[#e8f5ed]"
           >
-            {/* <Github size={17} /> */}
+            <FaGithub size={18} />
             More on GitHub
             <ArrowUpRight size={15} />
+          </a>
+        </div>
+
+        {/* MOBILE — SIMPLE GITHUB BUTTON */}
+        <div className="mt-7 sm:hidden">
+          <a
+            href="https://github.com/Darkshiira?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-full items-center justify-center gap-3 rounded-xl border border-[#cce7d7] bg-[#f0f6ed] px-5 py-4 text-[14px] font-bold text-[#17695d] transition-colors hover:bg-[#e5f2e8]"
+          >
+            <FaGithub size={20} />
+            Explore more on GitHub
+            <ArrowUpRight size={17} />
           </a>
         </div>
       </div>

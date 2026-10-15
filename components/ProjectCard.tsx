@@ -1,6 +1,7 @@
 
 import Image from "next/image";
 import { ArrowUpRight, Sparkles } from "lucide-react";
+import { FaGithub } from "react-icons/fa";
 
 import type { Project } from "@/types/portfolio";
 
@@ -152,7 +153,7 @@ export default function ProjectCard({
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl border border-[#e9ded4] px-4 py-3 text-[13px] font-bold text-[#34434a] transition-colors hover:border-[#17695d] hover:text-[#17695d]"
             >
-              {/* <Github size={17} /> */}
+              <FaGithub size={20} />
               View code
             </a>
           )}
