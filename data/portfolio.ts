@@ -1,10 +1,8 @@
-
 import type {
   Project,
   // SkillGroup,
   // CareerEntry,
 } from "@/types/portfolio";
-
 
 export const technologies = [
   { name: "TypeScript", color: "teal" },
@@ -16,7 +14,6 @@ export const technologies = [
   { name: "Tailwind CSS", color: "teal" },
   { name: "Express.js", color: "blue" },
 ];
-
 
 export const advantages = [
   {
@@ -54,18 +51,32 @@ export const advantages = [
   },
 ];
 
-
 export const projects: Project[] = [
   {
-    title: "Featured Project",
+    title: "Matteäventyret",
+    category: "Interactive Math Learning",
     description:
-      "Explain the problem, your solution, and what you implemented.",
-    technologies: ["TypeScript", "React", "CSS"],
-    category: "Web application",
+      "A playful math application for children aged 6–9. Children explore different worlds, count animals, solve math challenges, and practise number recognition through interactive activities.",
+    technologies: ["Next.js", "TypeScript", "React", "Tailwind CSS"],
+    demoUrl: "https://littlemathadventures.vercel.app/",
+    featured: true,
+  },
+  {
+    title: "Svenskaspåret",
+    category: "Swedish Language Learning",
+    description:
+      "An interactive application for practising Swedish through short exercises in spelling, grammar, and vocabulary. Includes daily words, progress tracking, learning streaks, and personalised practice.",
+    technologies: [
+      "Next.js",
+      "TypeScript",
+      "React",
+      "Tailwind CSS",
+      "LocalStorage",
+    ],
+    demoUrl: "https://svenskasparet.vercel.app/",
     featured: true,
   },
 ];
-
 
 export const skillGroups = [
   {
@@ -114,7 +125,7 @@ export const skillGroups = [
     ],
   },
   {
-    title: "Teaching & Collaboration",
+    title: "Other skills",
     description:
       "Bringing patience, creativity, and clear communication to teamwork.",
     icon: "brain",
@@ -129,8 +140,6 @@ export const skillGroups = [
     ],
   },
 ];
-
-
 
 export const careerEntries = [
   {
@@ -159,6 +168,15 @@ export const careerEntries = [
     description:
       "Developed frontend components for a web application that transformed uploaded XML train timetables into updated route numbers and more readable data. Worked with SJ’s component library and contributed to backend functionality using C#, .NET and Entity Framework Core.",
     color: "green",
+  },
+  {
+    period: "AUG 2022 – JUN 2024",
+    meta: "Higher Vocational Education · Fullstack Development",
+    title: "Fullstack Web Developer, Open Source",
+    organisation: "Nackademin · Stockholm",
+    description:
+      "Completed a two-year vocational education in fullstack web development, focusing on JavaScript, TypeScript, React, Next.js, backend development, APIs and databases. Gained practical experience through projects, teamwork and an internship at SJ.",
+    color: "blue",
   },
   {
     period: "NEXT CHAPTER",

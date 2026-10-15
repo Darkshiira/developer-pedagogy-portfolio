@@ -1,41 +1,65 @@
-
 import {
-  Workflow,
-  Accessibility,
-  MessagesSquare,
-  CheckCircle,
-  Users,
   Lightbulb,
+  MessagesSquare,
+  Users,
+  ArrowUpRight,
+  WandSparkles,
 } from "lucide-react";
 
-import { advantages } from "@/data/portfolio";
-
-const iconMap = {
-  workflow: Workflow,
-  accessibility: Accessibility,
-  "messages-square": MessagesSquare,
-};
-
-const footerIconMap = {
-  "check-circle": CheckCircle,
-  users: Users,
-};
+const advantages = [
+  {
+    number: "01",
+    label: "CREATIVITY",
+    title: "Creative problem-solving",
+    description:
+      "Teaching often means finding new ways to approach the same challenge. I bring that flexibility and creativity into development, exploring different solutions until something works.",
+    takeaway: "Flexible thinking",
+    icon: WandSparkles,
+    color: "teal",
+  },
+  {
+    number: "02",
+    label: "COMMUNICATION",
+    title: "Making complex things simple",
+    description:
+      "I'm used to breaking down complicated ideas into smaller, understandable pieces. That helps when explaining technical decisions, sharing ideas, and working with others.",
+    takeaway: "Clear communication",
+    icon: MessagesSquare,
+    color: "orange",
+  },
+  {
+    number: "03",
+    label: "PEOPLE FIRST",
+    title: "Understanding different users",
+    description:
+      "People learn, think, and interact differently. My background has taught me to consider different perspectives and create experiences that are intuitive and accessible.",
+    takeaway: "Thoughtful experiences",
+    icon: Users,
+    color: "cyan",
+  },
+] as const;
 
 const colorStyles = {
   teal: {
-    icon: "border-emerald-200 bg-emerald-50 text-teal",
-    label: "text-teal",
-    footer: "text-teal",
+    icon: "border-[#cce7d7] bg-[#e8f5ed] text-[#17695d]",
+    label: "text-[#17695d]",
+    number: "text-[#b7d7c6]",
+    footer: "text-[#17695d]",
+    hover: "hover:border-[#b7d7c6]",
   },
   orange: {
-    icon: "border-amber-200 bg-amber-50 text-orange-600",
-    label: "text-orange-600",
-    footer: "text-orange-600",
+    icon: "border-[#f0d8b8] bg-[#fff1df] text-[#c26b25]",
+    label: "text-[#c26b25]",
+    number: "text-[#e8c9a4]",
+    footer: "text-[#c26b25]",
+    hover: "hover:border-[#e8c9a4]",
   },
   cyan: {
-    icon: "border-cyan-200 bg-cyan-50 text-cyan-700",
-    label: "text-cyan-700",
-    footer: "text-cyan-700",
+    icon: "border-[#c7e7ed] bg-[#eaf7fa] text-[#147b91]",
+    label: "text-[#147b91]",
+    number: "text-[#b5dce5]",
+    footer: "text-[#147b91]",
+    hover: "hover:border-[#b5dce5]",
   },
 } as const;
 
@@ -43,86 +67,82 @@ export default function Advantage() {
   return (
     <section
       id="advantage"
-      className="scroll-mt-24 bg-white py-12 sm:py-16"
+      className="scroll-mt-24 border-b border-[#e9e0d6] bg-white py-16 sm:py-20 lg:py-24"
     >
-      <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-8">
-        {/* Section heading */}
-        <div className="mb-6 grid gap-4 border-b border-[#e9e2da] pb-5 md:grid-cols-[1.65fr_1fr] md:items-center">
+      <div className="mx-auto max-w-[1300px] px-5 sm:px-8 lg:px-10">
+        {/* SECTION HEADING */}
+        <div className="mb-10 grid gap-6 border-b border-[#e9e2da] pb-8 md:grid-cols-[1.3fr_1fr] md:items-end">
           <div>
-            <p className="mb-1 flex items-center gap-1.5 font-mono text-[12px] font-bold uppercase tracking-[0.12em] text-orange-600">
-              <Lightbulb size={14} />
-              A Different perspective · Real-world experience
+            <p className="mb-4 flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.16em] text-[#c26b25]">
+              <Lightbulb size={16} />
+              The Teacher Advantage
             </p>
 
-            <h2 className="max-w-[540px] text-2xl font-bold leading-[1.15] tracking-tight text-[#172033] sm:text-[28px]">
-              The Advantages of being an educator in Software Engineering
+            <h2 className="max-w-[600px] text-3xl font-extrabold leading-[1.15] tracking-[-0.035em] text-[#202531] sm:text-4xl">
+              What I bring beyond technical skills.
             </h2>
           </div>
 
-          <p className="max-w-md text-xs leading-[1.65] text-[#686765] md:justify-self-end">
-            My teaching experience has helped me develop skills that I can bring to software development, from explaining complex ideas to understanding different users' needs.
+          <p className="max-w-md text-[15px] leading-7 text-[#667078] md:justify-self-end">
+            Software development isn&apos;t only about writing code. My experience in
+            education has given me practical skills in problem-solving,
+            communication, and understanding people.
           </p>
         </div>
 
-        {/* Advantage cards */}
-        <div className="grid gap-4 md:grid-cols-3">
+        {/* ADVANTAGE CARDS */}
+        <div className="grid gap-5 md:grid-cols-3">
           {advantages.map((item) => {
-            const Icon =
-              iconMap[item.icon as keyof typeof iconMap];
-
-            const FooterIcon =
-              footerIconMap[
-                item.footerIcon as keyof typeof footerIconMap
-              ];
-
-            const styles =
-              colorStyles[item.color as keyof typeof colorStyles] ??
-              colorStyles.teal;
+            const Icon = item.icon;
+            const styles = colorStyles[item.color];
 
             return (
               <article
                 key={item.number}
-                className="flex min-w-0 flex-col rounded-[10px] border border-[#e9ded4] bg-[#faf5ef] p-4 transition-transform duration-200 hover:-translate-y-1 sm:p-[15px]"
+                className={`group flex min-w-0 flex-col rounded-2xl border border-[#e9ded4] bg-[#fcf8f3] p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${styles.hover}`}
               >
-                {/* Icon tile */}
-                <div
-                  className={`mb-4 flex size-[31px] items-center justify-center rounded-[7px] border ${styles.icon}`}
-                >
-                  {Icon && <Icon size={19} strokeWidth={1.8} />}
+                {/* TOP ROW */}
+                <div className="mb-7 flex items-start justify-between">
+                  <div
+                    className={`flex size-12 items-center justify-center rounded-xl border ${styles.icon}`}
+                  >
+                    <Icon size={23} strokeWidth={1.8} />
+                  </div>
+
+                  <span
+                    className={`font-mono text-2xl font-bold ${styles.number}`}
+                  >
+                    {item.number}
+                  </span>
                 </div>
 
-                {/* Category */}
+                {/* CATEGORY */}
                 <p
-                  className={`mb-1.5 font-mono text-[11px] font-bold uppercase tracking-[0.08em] ${styles.label}`}
+                  className={`mb-3 font-mono text-[11px] font-extrabold uppercase tracking-[0.14em] ${styles.label}`}
                 >
                   {item.label}
                 </p>
 
-                {/* Title */}
-                <h3 className="text-[15px] font-bold leading-[1.4] tracking-tight text-[#172033]">
+                {/* TITLE */}
+                <h3 className="text-xl font-extrabold leading-snug tracking-tight text-[#202531]">
                   {item.title}
                 </h3>
 
-                {/* Description */}
-                <p className="mt-3 flex-1 text-[12px] leading-[1.65] text-[#62615f]">
+                {/* DESCRIPTION */}
+                <p className="mt-4 flex-1 text-[14px] leading-7 text-[#667078]">
                   {item.description}
                 </p>
 
-                {/* Footer */}
-                <div className="mt-4 flex items-center justify-between gap-2 border-t border-[#eee5db] pt-3">
-                  <span
-                    className={`text-[11px] leading-tight ${styles.footer}`}
-                  >
+                {/* FOOTER */}
+                <div className="mt-8 flex items-center justify-between border-t border-[#e9e2da] pt-4">
+                  <span className={`text-[12px] font-bold ${styles.footer}`}>
                     {item.takeaway}
                   </span>
 
-                  {FooterIcon && (
-                    <FooterIcon
-                      size={12}
-                      strokeWidth={1.8}
-                      className={`shrink-0 ${styles.footer}`}
-                    />
-                  )}
+                  <ArrowUpRight
+                    size={17}
+                    className={`opacity-50 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100 ${styles.footer}`}
+                  />
                 </div>
               </article>
             );

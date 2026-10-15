@@ -1,94 +1,72 @@
-import SectionHeading from "@/components/SectionHeading";
-import { Hammer, Code2, Sparkles } from "lucide-react";
+import { ArrowUpRight, Code2, Heart } from "lucide-react";
+
+import ProjectCard from "@/components/ProjectCard";
+import { projects } from "@/data/portfolio";
 
 export default function Projects() {
   return (
     <section
       id="projects"
-      className="scroll-mt-24 border-y border-line bg-sand/60 py-16 sm:py-20"
+      className="scroll-mt-24 border-y border-[#e9e0d6] bg-[#fcf8f3] py-16 sm:py-20 lg:py-24"
     >
-      <div className="mx-auto max-w-[1200px] px-5 sm:px-6 lg:px-8">
-        <SectionHeading
-          eyebrow="Practical solutions"
-          title="Featured fullstack projects"
-          description="A selection of projects demonstrating problem-solving, technical implementation and thoughtful design."
-        />
-
-        <div className="relative mt-8 overflow-hidden rounded-panel border border-line bg-card">
-          {/* Decorative background */}
-          <div className="pointer-events-none absolute -right-16 -top-20 size-64 rounded-full bg-[#17695d]/5 blur-3xl" />
-          <div className="pointer-events-none absolute -bottom-24 -left-12 size-64 rounded-full bg-[#e87936]/5 blur-3xl" />
-
-          <div className="relative grid items-center gap-8 p-7 sm:p-10 lg:grid-cols-[1fr_auto] lg:gap-12 lg:p-12">
-            {/* Text */}
-            <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#f2d8bd] bg-[#fff4e8] px-3 py-1.5">
-                <span className="size-2 rounded-full bg-[#e87936]" />
-                <span className="font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-[#a94e1c]">
-                  Work in progress
-                </span>
-              </div>
-
-              <h3 className="mt-5 text-2xl font-bold tracking-tight text-ink sm:text-3xl">
-                Good projects take{" "}
-                <span className="text-teal">thought and time.</span>
-              </h3>
-
-              <p className="mt-4 max-w-xl text-sm leading-7 text-muted sm:text-base">
-                I&apos;m currently working on new projects to put my fullstack
-                skills into practice. This space will soon feature practical
-                applications, the ideas behind them, and what I&apos;ve learned
-                along the way.
-              </p>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                {["Learning by building", "Fullstack development", "Coming soon"].map(
-                  (item) => (
-                    <span
-                      key={item}
-                      className="rounded-full border border-line bg-sand px-3 py-1.5 text-xs font-medium text-muted"
-                    >
-                      {item}
-                    </span>
-                  )
-                )}
-              </div>
-            </div>
-
-            {/* Decorative illustration */}
-            <div className="flex items-center justify-center lg:justify-end">
-              <div className="relative flex size-40 items-center justify-center rounded-[2rem] border border-line bg-sand shadow-sm sm:size-48">
-                <div className="absolute inset-3 rounded-[1.5rem] border border-dashed border-[#d9cabb]" />
-
-                <div className="relative flex size-20 items-center justify-center rounded-2xl bg-teal text-white shadow-md sm:size-24">
-                  <Code2 size={38} strokeWidth={1.6} />
-                </div>
-
-                <div className="absolute -right-3 top-5 flex size-11 items-center justify-center rounded-xl border border-line bg-white text-[#e87936] shadow-sm">
-                  <Hammer size={21} />
-                </div>
-
-                <div className="absolute -bottom-3 -left-2 flex size-10 items-center justify-center rounded-xl border border-line bg-white text-teal shadow-sm">
-                  <Sparkles size={19} />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom status strip */}
-          <div className="relative flex flex-wrap items-center justify-between gap-3 border-t border-line bg-sand/70 px-7 py-4 sm:px-10">
-            <p className="text-xs text-muted">
-              <span className="font-semibold text-ink">
-                Next step:
-              </span>{" "}
-              Turning ideas into working applications.
+      <div className="mx-auto max-w-[1300px] px-5 sm:px-8 lg:px-10">
+        {/* SECTION HEADING */}
+        <div className="mb-10 grid gap-5 border-b border-[#e9e2da] pb-8 md:grid-cols-[1.3fr_1fr] md:items-end">
+          <div>
+            <p className="mb-4 flex items-center gap-2 text-[11px] font-extrabold uppercase tracking-[0.16em] text-[#c26b25]">
+              <Code2 size={16} />
+              Featured Work
             </p>
 
-            <span className="inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-wider text-teal">
-              <span className="size-1.5 rounded-full bg-teal" />
-              Building something new
-            </span>
+            <h2 className="max-w-[650px] text-3xl font-extrabold leading-[1.15] tracking-[-0.035em] text-[#202531] sm:text-4xl lg:text-[44px]">
+              Ideas brought to life.
+            </h2>
           </div>
+
+          <p className="max-w-md text-[15px] leading-7 text-[#667078] md:justify-self-end">
+            A selection of projects where I combine creativity, problem-solving,
+            and development to build useful and engaging applications.
+          </p>
+        </div>
+
+        {/* PROJECT CARDS */}
+        <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
+          {projects.map((project, index) => (
+            <ProjectCard key={project.title} project={project} index={index} />
+          ))}
+        </div>
+
+        {/* PERSONAL NOTE */}
+        <div className="mt-10 flex flex-col items-start justify-between gap-5 rounded-2xl border border-[#e4e8dc] bg-[#f0f6ed] p-6 sm:flex-row sm:items-center sm:p-7">
+          <div className="flex items-start gap-4">
+            <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-white text-[#17695d] shadow-sm">
+              <Heart size={21} />
+            </span>
+
+            <div>
+              <h3 className="text-[16px] font-extrabold text-[#202531]">
+                Built with curiosity and care.
+              </h3>
+
+              <p className="mt-2 max-w-2xl text-[13px] leading-6 text-[#667078]">
+                These projects bring together two things I enjoy: creating
+                useful applications and finding playful ways to support
+                learning. They&apos;re also opportunities for me to keep
+                exploring new ideas and improving my development skills.
+              </p>
+            </div>
+          </div>
+
+          <a
+            href="https://github.com/Darkshiira?tab=repositories"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex shrink-0 items-center gap-2 rounded-xl border border-[#cce7d7] bg-white px-4 py-3 text-[13px] font-bold text-[#17695d] transition-colors hover:bg-[#e8f5ed]"
+          >
+            {/* <Github size={17} /> */}
+            More on GitHub
+            <ArrowUpRight size={15} />
+          </a>
         </div>
       </div>
     </section>
