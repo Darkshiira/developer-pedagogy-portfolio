@@ -1,9 +1,7 @@
-
 import type { Metadata } from "next";
-import {
-  DM_Sans,
-  Space_Grotesk,
-} from "next/font/google";
+import { Suspense } from "react";
+import { DM_Sans, Space_Grotesk } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 
 import "./globals.css";
 
@@ -34,6 +32,10 @@ export default function RootLayout({
         className={`${dmSans.variable} ${spaceGrotesk.variable} font-body`}
       >
         {children}
+
+        <Suspense fallback={null}>
+          <Analytics />
+        </Suspense>
       </body>
     </html>
   );
